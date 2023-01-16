@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.ddd.mappers.BoardMapper">
+	<!-- 커뮤니티 글작성 -->	
+	<insert id="insert">
+		 insert into tbl_community_board(category,title,userid,content)
+		 values (#{category},#{title},#{userid},#{content})
+	</insert>
+	
+	<!-- 다이어리 글작성 -->	
+	<insert id="insertD">
+		 insert into tbl_diary_board(userid,title,content,score)
+		 values (#{userid},#{title},#{content},#{score})
+	</insert>
+	
+	<!-- 다이어리 글목록 -->	
+	<select id="listD" resultType="com.ddd.domain.DiaryBoardVO">
+		select * from tbl_diary_board
+		where userid=#{userid}
+		order by dno desc;
+	</select>
+	
+	<!-- 다이어리 개수-->	
+	<select id="totalD" resultType="int">
+		select count(*) from tbl_diary_board
+		where userid=#{userid}
+	</select>
+	
+	<!-- 다이어리 상세-->	
+	<select id="readD" resultType="com.ddd.domain.DiaryBoardVO">
+		select * from tbl_diary_board
+		where dno=#{dno}
+	</select>
+	
+	<!-- 다이어리 수정 -->
+	<update id="updateD">
+		update tbl_diary_board
+		set title=#{title}, content=#{content}, score=#{score}
+		where dno=#{dno}
+	</update>
+	
+	
+	<!--다이어리 삭제  -->
+	<delete id="deleteD">
+		delete from tbl_diary_board
+		where dno=#{dno}
+	</delete>
+	
+	
+</mapper>
+
+
