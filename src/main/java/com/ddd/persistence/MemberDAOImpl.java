@@ -35,9 +35,40 @@ public class MemberDAOImpl implements MemberDAO{
 		log.info("DAO : insertAuth(AuthVO ao) -- 회원가입 실행 ");
 		sqlSession.insert(NAMESPACE+".insertAuth", ao);
 	}
-	
-	
 
+	
+	
+	// 회원정보조회
+	@Override
+	public MemberVO readMember(String userid) throws Exception {
+		MemberVO vo = sqlSession.selectOne(NAMESPACE+".readMember", userid);
+		
+		return vo;
+	}
+	
+	//아이디 체크
+	@Override
+	public int idCheck(String userid) throws Exception {
+			log.info("DAO : idCheck()실행 ");
+			return sqlSession.selectOne(NAMESPACE+".idCheck", userid);
+		}
+
+	//비밀번호 변경
+//	@Override
+//	public int updatePw(MemberVO vo) throws Exception {
+//		return sqlSession.update(NAMESPACE+".updatePw", vo);
+//	}
+
+	// 이메일 체크
+	@Override
+	public int emailCheck(String email) throws Exception {
+		log.info("DAO : emailCheck()실행 ");
+		return sqlSession.selectOne(NAMESPACE+".emailCheck", email);
+	}
+	
+	
+	
+	
 	
 	
 }
