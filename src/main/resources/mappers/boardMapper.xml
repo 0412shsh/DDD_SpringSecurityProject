@@ -50,6 +50,13 @@
 	</delete>
 	
 	
+	<!-- 다이어리 최신 3개 글목록 -->	
+	<select id="recentD" resultType="com.ddd.domain.DiaryBoardVO">
+		select * from tbl_diary_board
+		where userid=#{userid}
+		order by dno desc limit 3;
+	</select>
+	
 </mapper>
 
 

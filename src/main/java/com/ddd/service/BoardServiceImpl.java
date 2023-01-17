@@ -76,6 +76,16 @@ public class BoardServiceImpl implements BoardService{
 		int cnt = dao.deleteD(dno);
 		return 0;
 	}
+
+	// 메인 게시글 3개 
+	@Override
+	public List<DiaryBoardVO> getRecent(String userid) throws Exception {
+		List<DiaryBoardVO> recentList = dao.getRecent(userid);
+		
+		return recentList;
+	}
+	
+	
 	
 	
 	

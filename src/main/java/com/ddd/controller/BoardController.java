@@ -6,6 +6,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -71,6 +72,7 @@ public class BoardController {
 	}
 	
 	// 일기 글 상세
+	@PreAuthorize("principal.username == #vo.userid")
 	@GetMapping("/mydiaryread")
 	public void getMydiaryread(@RequestParam("dno") Integer dno, Model model) throws Exception {
 		log.info("getMydiaryread() 호출 - 일기 글 상세");
@@ -110,6 +112,7 @@ public class BoardController {
 	
 	
 	// 일기 글 수정 POST
+	@PreAuthorize("principal.username == #vo.userid")
 	@PostMapping("/mydiaryupdate")
 	public String posttMydiaryupdate(DiaryBoardVO vo) throws Exception {
 		log.info("postMydiaryupdate() 호출 - 일기 수정 ");
@@ -123,14 +126,16 @@ public class BoardController {
 	}
 	
 	// 일기 글 삭제 GET
+	@PreAuthorize("principal.username == #userid")
 	@GetMapping("/mydiarydelete")
-	public String deleteGET(@RequestParam("dno")int dno, RedirectAttributes rttr) throws Exception {
+	public String deleteGET(@RequestParam("dno")int dno, RedirectAttributes rttr, String userid) throws Exception {
 		log.info("deleteGET() 호출 --  다이어리 글 삭제 ");
 		log.info("삭제할 게시글 넘버?? "+dno);
 		service.deleteD(dno);
 		log.info("게시글 삭제 완료 !!!!!!!!!!!!!!!!!!!!!!!");
 		return "redirect:/board/mydiary";
 	}
+	
 	
 	
 	

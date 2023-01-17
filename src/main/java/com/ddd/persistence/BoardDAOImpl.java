@@ -86,6 +86,17 @@ public class BoardDAOImpl implements BoardDAO {
 		
 	}
 	
+	// 메인 게시글 3개 
+	@Override
+	public List<DiaryBoardVO> getRecent(String userid) throws Exception {
+
+		List<DiaryBoardVO> recentList = sqlSession.selectList(NAMESPACE+".recentD",userid);
+		
+		return recentList;
+	}
+	
+	
+	
 	
 	
 }

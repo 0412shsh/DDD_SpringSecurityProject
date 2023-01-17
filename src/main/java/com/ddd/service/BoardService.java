@@ -29,4 +29,7 @@ public interface BoardService {
 	// 다이어리 글 삭제
 	public int deleteD(int dno) throws Exception;
 	
+	// 메인 게시글 3개 
+	public List<DiaryBoardVO> getRecent(String userid) throws Exception;
+	
 }
