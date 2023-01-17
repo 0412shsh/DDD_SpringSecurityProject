@@ -19,13 +19,13 @@
 		<aside id="fh5co-hero">
 			<div class="flexslider">
 				<ul class="slides">
-					<li style="background-image: url(/images/img_bg_4.jpg);">
+					<li><img src=”http://din1410.cdn1.cafe24.com/img_bg_5.jpg”>
 						<div class="overlay"></div>
 						<div class="container-fluid">
 							<div class="row">
 								<div class="col-md-6 col-md-offset-3 text-center slider-text">
 									<div class="slider-text-inner">
-										<h1>Community</h1>
+										<h1>Keep a Diary.</h1>
 									</div>
 								</div>
 							</div>
@@ -35,10 +35,10 @@
 			</div>
 		</aside>
 		<div id="fh5co-contact">
-			<div class="row animate-box">
+			<div class="row animate-box fadeInUp animated-fast">
 				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
-					<h2>Community</h2>
-					<p>Talk with other people. Let's use the nice words.</p>
+					<h2>Keep a Diary.</h2>
+					<p>How was your day?</p>
 				</div>
 			</div>
 			<!-- 여기서 부터 board 내용 쓰기 @@@@@@@@@@@@@			-->
@@ -46,7 +46,7 @@
 
 			<div class="row">
 
-				<div class="col-md-12 animate-box">
+				<div class="col-md-12 ">
 					<div class="row">
 						<form action="/board/mydiarywrite" method="post">
 
@@ -69,7 +69,7 @@
 										readonly>
 								</div>
 							</div>
-							<div class="col-md-12">
+							<div class="col-md-12" >
 								<div class="form-group">
 									<textarea style="height: 400px;" name="content"
 										class="form-control" placeholder="내용"></textarea>

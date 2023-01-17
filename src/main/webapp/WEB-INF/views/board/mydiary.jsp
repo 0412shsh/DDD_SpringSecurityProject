@@ -11,18 +11,16 @@
 <body>
 	<div class="container-wrap">
 
-
-
 		<aside id="fh5co-hero">
 			<div class="flexslider">
 				<ul class="slides">
-					<li style="background-image: url(${pageContext.request.contextPath }/resources/images/img_bg_4.jpg);">
+						<li><img src=”http://din1410.cdn1.cafe24.com/img_bg_5.jpg”>
 						<div class="overlay"></div>
 						<div class="container-fluid">
 							<div class="row">
 								<div class="col-md-6 col-md-offset-3 text-center slider-text">
 									<div class="slider-text-inner">
-										<h1>Read My Record</h1>
+										<h1>Read My Diary.</h1>
 									</div>
 								</div>
 							</div>
@@ -32,10 +30,10 @@
 			</div>
 		</aside>
 		<div id="fh5co-contact">
-			<div class="row animate-box">
-				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
+			<div class="row animate-box ">
+				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading ">
 					<h2>Read</h2>
-					<p>We made lots of stories.</p>
+					<p>Look! We made lots of stories.</p>
 				</div>
 			</div>
 			<!-- 여기서 부터 board 내용 쓰기 @@@@@@@@@@@@@			-->

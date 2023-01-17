@@ -95,10 +95,10 @@ $(document).ready(function() {
 					<div class="noticeTab">
 						<ul>
 							<li class="home"><a href="/">Home</a></li>
-							<li class="news"><a href="sermons.html">News</a></li>
+<!-- 							<li class="news"><a href="sermons.html">News</a></li> -->
 							<li class="read"><a href="/board/mydiary">Read</a></li>
 							<li class="write"><a href="/board/mydiarywrite">Write</a></li>
-							<li class="community"><a href="/board/community">Community</a></li>
+<!-- 							<li class="community"><a href="/board/community">Community</a></li> -->
 							
 							<sec:authorize access="isAnonymous()">	
 							<li class="login"><a href="/member/login">Login</a></li>
@@ -114,7 +114,7 @@ $(document).ready(function() {
 							<sec:authentication property="principal.username"/>님 환영합니다♡&nbsp;&nbsp;
 							<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" />
 							<button>로그아웃</button>
-							</form>
+							</form><br>
 							</sec:authorize>
 						
 						

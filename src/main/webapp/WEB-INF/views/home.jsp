@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>	
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <jsp:include page="./include/header.jsp" />
 	<body>
 		
@@ -26,7 +29,7 @@
 				   		</div>
 			   		</div>
 			   	</li> --%>
-			   	<li style="background-image: url(${pageContext.request.contextPath }/resources/images/img_bg_6.jpg);">
+			   	<li><img src=”http://din1410.cdn1.cafe24.com/img_bg_5.jpg”>
 			   		<div class="overlay"></div>
 			   		<div class="container-fluid">
 			   			<div class="row">
@@ -35,7 +38,12 @@
 					   				<div class="slider-text-inner">
 					   					<h1>Welcome !</h1>
 											<h2>Dear Diary :D  <a href="/" target="_blank">freehtml5.co</a></h2>
-											<p><a class="btn btn-primary btn-demo popup-vimeo" href="/board/mydiarywrite"> <i class="icon-play4"></i> Write record</a> <a class="btn btn-primary btn-learn" href="/member/register">Join us here! <i class="icon-arrow-right3"></i></a></p>
+											<p><a class="btn btn-primary btn-demo popup-vimeo" href="/board/mydiarywrite"> <i class="icon-play4"></i> Write record</a> 
+											
+											<sec:authorize access="isAnonymous()">	 
+											<a class="btn btn-primary btn-learn" href="/member/register">Join us here! <i class="icon-arrow-right3"></i></a></p>
+											</sec:authorize>
+							
 					   				</div>
 					   			</div>
 				   			</div>
@@ -65,12 +73,12 @@
 			<div class="row animate-box">
 				<div class="col-md-12 col-md-offset-0 text-center">
 					<h2>Write down your own Story !</h2>
-					<span>We are open Sunday to Monday</span>
+					<span>We are open Sunday to Monday.</span>
 				</div>
 			</div>
 		</div>
 		
-
+	
 		<!-- 
 		<div id="fh5co-bible-verse">
 			<div class="overlay"></div>
@@ -106,40 +114,36 @@
 					</div>
 				</div>
 			</div>
-		</div> -->
+		</div> --><hr>
 		<div id="fh5co-events">
 			<div class="row animate-box">
 				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
-					<h2>Your Stories</h2>
-					<p>I like trivial stories, sad stories, and happy stories. Everything is my precious story.</p>
+					<h2>Recent</h2>
+					<p> How are you feeling? </p>
 				</div>
 			</div>
 			<div class="row">
+					<c:forEach var="i" items="${recentList }">
 				<div class="col-md-4 animate-box">
 					<div class="events-entry">
-						<span class="date">March 10, 2017</span>
-						<h3><a href="#">Message From God</a></h3>
-						<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
-						<a href="#">Read More <i class="icon-arrow-right3"></i></a>
+						<span class="date">${i.write_date }</span>
+						<h3><a href="#">${i.title }</a></h3>
+						<p>${i.content }</p>
+						<a href="/board/mydiaryread?dno=${i.dno }">Read More <i class="icon-arrow-right3"></i></a>
 					</div>
 				</div>
-				<div class="col-md-4 animate-box">
-					<div class="events-entry">
-						<span class="date">March 20, 2017</span>
-						<h3><a href="#">Message From God</a></h3>
-						<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
-						<a href="#">Read More <i class="icon-arrow-right3"></i></a>
-					</div>
-				</div>
-				<div class="col-md-4 animate-box">
-					<div class="events-entry">
-						<span class="date">March 30, 2017</span>
-						<h3><a href="#">Message From God</a></h3>
-						<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
-						<a href="#">Read More <i class="icon-arrow-right3"></i></a>
-					</div>
-				</div>
-			</div>
+					</c:forEach>
+					
+				<c:if test="${num == 0 }">
+					<h3 class="text-center">Still no Record. <a href="/board/mydiarywrite" target="_blank">"keep a diary. Now!"</a></h3>
+				</c:if>
+			
+			
+				<sec:authorize access="isAnonymous()">	
+					<h3 class="text-center">Still no Record. <a href="/member/register" target="_blank">"Be our Member. Now!"</a></h3>
+				</sec:authorize>
+			
+			</div> 
 			
 			
 			

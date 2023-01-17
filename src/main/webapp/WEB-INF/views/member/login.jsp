@@ -17,7 +17,7 @@
         <aside id="fh5co-hero">
 			<div class="flexslider">
 				<ul class="slides">
-			   	<li style="background-image: url(/images/img_bg_4.jpg);">
+			   	<li><img src=”http://din1410.cdn1.cafe24.com/img_bg_5.jpg”>
 			   		<div class="overlay"></div>
 			   		<div class="container-fluid">
 			   			<div class="row">
@@ -44,7 +44,7 @@
 		<div class="row animate-box">
 			<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
 		  <form class="form-signin" action="/login" method="post">
-			<a><img class="mb-4" src="/images/logo.png" alt="" width="72" height="72"></a>
+			<a><img class="mb-4" src=”http://din1410.cdn1.cafe24.com/logo.png” width="72" height="72"></a>
 			<h1 class="h3 mb-3 font-weight-normal">Please Login</h1>
 				
 				<c:if test="${error != null}">
@@ -64,6 +64,7 @@
 			<br>
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
 			<a href="/member/register"><p>Not member?</p></a>
+<!-- 			<a href="/member/findpw"><p>Forgot your password?</p></a> -->
 			<p class="mt-5 mb-3 text-muted">&copy; 2023</p>
 			<br>
 		  </form>

@@ -19,13 +19,13 @@
 		<aside id="fh5co-hero">
 			<div class="flexslider">
 				<ul class="slides">
-					<li style="background-image: url(/images/img_bg_4.jpg);">
+					<li><img src=”http://din1410.cdn1.cafe24.com/img_bg_5.jpg”>
 						<div class="overlay"></div>
 						<div class="container-fluid">
 							<div class="row">
 								<div class="col-md-6 col-md-offset-3 text-center slider-text">
 									<div class="slider-text-inner">
-										<h1>Community</h1>
+										<h1>Read a diary</h1>
 									</div>
 								</div>
 							</div>
@@ -37,7 +37,7 @@
 		<div id="fh5co-contact">
 			<div class="row animate-box">
 				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
-					<h2>Community</h2>
+					<h2>Read a diary</h2>
 					<p>Talk with other people. Let's use the nice words.</p>
 				</div>
 			</div>
@@ -158,8 +158,13 @@
 	
 							<div class="col-md-12 text-right">
 								<div class="form-group">
+								<sec:authentication property="principal" var="pinfo"/>
+									<sec:authorize access="isAuthenticated()">
+									<c:if test="${pinfo.username eq vo.userid }">
 									<button type="button" class="btn btn-primary btn-modify" onclick="location.href='/board/mydiaryupdate?dno='+'${vo.dno}'">수정</button>
 									<button type="button" class="btn btn-primary btn-modify" onclick="location.href='/board/mydiarydelete?dno='+'${vo.dno}'">삭제</button>
+									</c:if>									
+									</sec:authorize>
 									<a href="/board/mydiary" class="btn btn-primary btn-modify">목록</a>
 									
 								</div>
@@ -167,6 +172,8 @@
 						</form>
 					</div>
 				</div>
+
+
 
 
 			
