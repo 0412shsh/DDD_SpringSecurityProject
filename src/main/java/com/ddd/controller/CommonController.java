@@ -20,4 +20,10 @@ public class CommonController {
 		log.info("access Denied :: "+auth);
 		model.addAttribute("msg", "Access Denied");
 	}
+	
+	@GetMapping("/logout")
+	public void loggoutGet() {
+		log.info("loggoutGet() - 로그아웃 실행");
+		
+	}
 }
